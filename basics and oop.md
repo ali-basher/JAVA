@@ -109,7 +109,7 @@ public class Main {
 }
 ```
 
-```jav
+```java
 // 2-D array
 package test;
 
@@ -123,9 +123,31 @@ public class Main {
                 {7, 8, 9}
         };
 
-        System.out.println(x[2][0]);
+        for (int[] rows : x) {
+            for (int cols : rows) {
+                System.out.println(cols);
+            }
+        }
 
 
+    }
+}
+```
+
+```java
+//float and double
+package test;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        float x = 1.5f;
+        double y = 1.877868963782165489686735987264986239;
+
+
+        System.out.println(x + x);
+        System.out.println(y + y);
     }
 }
 ```
