@@ -134,6 +134,10 @@ public class Main {
 }
 ```
 
+---
+
+## 3- Data Type
+
 ```java
 //float and double
 package test;
@@ -148,6 +152,47 @@ public class Main {
 
         System.out.println(x + x);
         System.out.println(y + y);
+    }
+}
+```
+
+```java
+// short, int and long
+package test;
+
+public class Main {
+
+    public static void main(String[] args) {
+		byte x = 127; // -128 to 127
+        byte y = -128; // -128 to 127
+        short x = 12345; // 16 bit
+        int y = 1234567890; // 32 bit
+        long z = 1234567890121123213L; // 64 bit
+
+        System.out.println(x + "\n" + y + "\n" + z + "\n");
+
+    }
+}
+```
+
+```java
+// Boolean
+package test;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter 'true' or 'false':");
+        boolean x = input.nextBoolean();
+
+        if(x){
+            System.out.println("Yes");
+        }else {
+            System.out.println("No");
+        }
+        
     }
 }
 ```
