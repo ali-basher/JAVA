@@ -134,7 +134,7 @@ public class Main {
 }
 ```
 
----
+----
 
 ## 3- Data Type
 
@@ -197,5 +197,239 @@ public class Main {
 }
 ```
 
+----
+
+## 4- Print String
+
+----
+
+```java
+package first;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		String site = "www.ali.net";
+		
+		for(int i = 0; i < site.length(); i++) {
+			
+			char ch = site.charAt(i);
+			
+			System.out.print(ch + " ");
+		}
+		
+		System.out.println();
+
+		for(int i = site.length() - 1; i >= 0 ; i--) {
+			
+			char ch = site.charAt(i);
+			
+			System.out.print(ch + " ");
+		}
+
+	}
+
+}
+```
+
+----
+
+### String To Array
+
+>Class StrOp
+
+```java
+package first;
 
 
+public class StrOp {
+	
+	public String value;
+	
+	public StrOp(String s) {
+		this.value = s;
+	}
+	
+	public char [] strToArray() {
+		
+		int length = value.length();
+		
+		char [] ch = new char[length];
+		
+		for(int i = 0; i < length; i++) {
+			ch[i] = value.charAt(i);
+		}
+		
+		return ch;
+		
+	}
+	
+	
+}
+```
+
+>Main Class
+
+```java
+package first;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		StrOp str = new StrOp("Hello!");
+		
+		char [] ch = str.strToArray();
+	
+		for (char c : ch) {
+			System.out.println(c);
+		}
+		System.out.println(ch);
+		
+	}
+
+}
+
+```
+
+----
+
+### calculator
+
+>Class Calc
+
+```java
+package first;
+
+public class Calc {
+	
+	public int sum(int number1, int number2) {
+		
+		return number1 + number2;
+	}
+
+	public int sub(int number1, int number2) {
+		
+		return number1 - number2;
+	}
+	
+	public int mul(int number1, int number2) {
+		
+		return number1 * number2;
+	}
+	
+	public int div(int number1, int number2) {
+		
+		if(number2 == 0) {
+			return 0;
+		}
+		else {
+			return number1/number2;
+		}
+	}
+	
+	public int [] mulArray(int [] a, int [] b) {
+		
+		if(a.length != b.length) {
+			return null;
+		}
+		else {
+			int [] c = new int[a.length];
+			
+			for(int i = 0; i < a.length; i++) {
+				c[i] = a[i] * b[i];
+			}
+			return c;
+		}
+	}
+
+}
+```
+
+>Main Class
+
+```java
+package first;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Calc c1 = new Calc();
+		
+		int [] a = {1, 2, 3, 4, 5, 90};
+		int [] b = {10, 20, 30, 40, 50};
+		
+		int [] c = c1.mulArray(a, b);
+		
+		if(c == null) {
+			System.out.println("Null");
+		}else {
+			for (int i : c) {
+				System.out.println(i);
+			}
+		}
+		
+	}
+
+}
+```
+
+----
+
+### Book
+
+>Class Book
+
+```java
+package first;
+
+public class Book {
+
+	public String name;
+	public String author;
+	public int pubDate;
+	
+	public int lastPageNumber;
+	public int currentPage;
+	
+	public boolean isOpen;
+	
+	public Book(String name, String author, int pubDate, int lastPageNumber) {
+		this.name = name;
+		this.author = author;
+		this.pubDate = pubDate;
+		this.lastPageNumber = lastPageNumber;
+		this.isOpen = false;
+	}
+	
+	void openBook() {
+		if(isOpen) {
+			System.out.println("Is Open");
+		}else {
+			isOpen = true;
+		}
+	}
+	
+}
+```
+
+>Main Class
+
+```java
+package first;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Book b = new Book("Java", "Ali BAsheer", 2020, 150);
+		
+		b.openBook();
+		b.openBook();
+		
+	}
+
+}
+```
