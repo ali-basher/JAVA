@@ -387,30 +387,112 @@ package first;
 
 public class Book {
 
-	public String name;
-	public String author;
-	public int pubDate;
+    // Book name
+    public String name;
+
+    // Book author
+    public String author;
+
+    // publishing date
+    public int pubDate;
+
+    // the last page number
+    public int lastPageNumber;
+
+    // the current opened page
+    public int currentPage;
+
+    // this flag used to detect the stats of the book
+    public boolean isOpen;
+
+    // This is a book constructor (loader)
+    public Book(String name, String author, int pubDate, int lastPageNumber) {
+        this.name = name;
+        this.author = author;
+        this.pubDate = pubDate;
+        this.lastPageNumber = lastPageNumber;
+        this.isOpen = false;
+    }
+
+    /*
+     we use this method to open a book
+     */
+    public void openBook() {
+        if(isOpen) {
+            System.out.println("Is Open");
+        }else {
+            isOpen = true;
+        }
+    }
+
+    /*
+    we use this method to close a book
+     */
+    public void closeBook() {
+        if(isOpen)
+            this.isOpen = false;
+        else
+            System.out.println("Is Close");
+    }
+
+    /*
+    we use this method to move (back and forward)
+    throughout the book pages
+     */
+    public boolean moveToPage(int page){
+        if(!isOpen){
+            return false;
+        }else {
+            if((page > this.lastPageNumber) || (page < 1)){
+                return false;
+            }else {
+                this.currentPage = page;
+                return true;
+            }
+        }
+    }
+
+    /*
+    we use this method to print out all information that are
+    related to the book.
+     */
+    public void printBookInfo(){
+        System.out.println("Book Name : " + this.name);
+        System.out.println("Book Author : " + this.author);
+        System.out.println("Pages Count : " + this.lastPageNumber);
+    }
+
+}
+```
+
+>Class StrOp
+
+```java
+package first;
+
+
+public class StrOp {
 	
-	public int lastPageNumber;
-	public int currentPage;
+	public String value;
 	
-	public boolean isOpen;
-	
-	public Book(String name, String author, int pubDate, int lastPageNumber) {
-		this.name = name;
-		this.author = author;
-		this.pubDate = pubDate;
-		this.lastPageNumber = lastPageNumber;
-		this.isOpen = false;
+	public StrOp(String s) {
+		this.value = s;
 	}
 	
-	void openBook() {
-		if(isOpen) {
-			System.out.println("Is Open");
-		}else {
-			isOpen = true;
+	public char [] strToArray() {
+		
+		int length = value.length();
+		
+		char [] ch = new char[length];
+		
+		for(int i = 0; i < length; i++) {
+			ch[i] = value.charAt(i);
 		}
+		
+		return ch;
+		
 	}
+	
 	
 }
 ```
@@ -421,15 +503,27 @@ public class Book {
 package first;
 
 public class Main {
+    public static void main(String[] args) {
 
-	public static void main(String[] args) {
-		
-		Book b = new Book("Java", "Ali BAsheer", 2020, 150);
-		
-		b.openBook();
-		b.openBook();
-		
-	}
+        Book javaBook = new Book("Java", "ali basheer", 2008, 150);
+        Book pythonBook = new Book("Python", "Saif", 2012, 200);
 
+        StrOp str = new StrOp(pythonBook.author);
+
+        System.out.println(str.strToArray());
+
+        System.out.println("---------------------------------------");
+        javaBook.openBook();
+        System.out.println(javaBook.moveToPage(35));
+        javaBook.printBookInfo();
+        javaBook.closeBook();
+
+        System.out.println("---------------------------------------");
+
+
+        pythonBook.openBook();
+        pythonBook.printBookInfo();
+        pythonBook.closeBook();
+    }
 }
 ```
