@@ -138,7 +138,6 @@ public class C extends B {
 
 ## multiple constructor
 
-
 > Class Main
 
 ```java
@@ -189,6 +188,57 @@ public class A {
 
     public void printA(){
         System.out.println("Class A");
+    }
+}
+```
+
+----
+
+## Getters and setters
+
+> Class Main
+
+```java
+package inheritance;
+
+public class Main {
+
+    public static void main(String[] args){
+
+        A a = new A();
+
+        int val = a.getVal();
+
+        System.out.println(val);
+
+        a.setVal(500);
+        val = a.getVal();
+        
+        System.out.println(val);
+
+    }
+}
+```
+
+> Class A
+
+```java
+package inheritance;
+
+public class A {
+
+    private int val;
+
+    public A(){
+        this.val = 10;
+    }
+
+    public void setVal(int val){
+        this.val = val;
+    }
+
+    public int getVal(){
+        return this.val;
     }
 }
 ```
