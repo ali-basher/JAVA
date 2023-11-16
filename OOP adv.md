@@ -194,7 +194,7 @@ public class A {
 
 ----
 
-## Getters and setters
+## Getters and setters and private
 
 > Class Main
 
@@ -239,6 +239,115 @@ public class A {
 
     public int getVal(){
         return this.val;
+    }
+}
+```
+
+----
+
+## Protected && Default
+
+> **You can access anything Protected if the class inherits from it or is with the same package**
+
+## Protected
+
+> Class Main
+
+```java
+package inheritance;
+
+public class Main {
+
+    public static void main(String[] args){
+
+        int val = 10;
+
+        System.out.println(val);
+
+        B b = new B();
+
+        b.printB();
+    }
+}
+```
+
+> Class A
+
+```java
+package inheritance;
+
+public class A {
+
+    protected int val;
+
+    public A(){
+        this.val = 10;
+    }
+
+    public void setVal(int val){
+        this.val = val;
+    }
+
+    public int getVal(){
+        return this.val;
+    }
+}
+```
+
+> Class B
+
+```java
+package inheritance;
+
+public class B extends A{
+
+    public void printB(){
+        System.out.println(val * 10);
+    }
+}
+```
+
+## Default
+
+> **You can access anything Default if is with the same package**
+
+----
+
+> Class Main
+
+```java
+package inheritance;
+
+public class Main {
+
+    public static void main(String[] args){
+
+        int val = 10;
+
+        System.out.println(val * 10);
+
+        A a = new A();
+
+        a.printA();
+    }
+}
+```
+
+> Class A
+
+```java
+package inheritance;
+
+public class A {
+
+     int val;
+
+    public A(){
+        this.val = 10;
+    }
+
+    void printA(){
+        System.out.println(val);
     }
 }
 ```
