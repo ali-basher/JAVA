@@ -351,3 +351,92 @@ public class A {
     }
 }
 ```
+
+----
+
+## Simple Calculater
+
+> Class Main
+
+```java
+package calc;
+
+public class Main {
+    public static void main(String[] args) {
+
+        System.out.println("==================== Before getter and setter ====================");
+
+        int x = 10;
+        int y = 8;
+
+        SimpleCalc calc = new SimpleCalc(x, y);
+
+        int result = calc.Add();
+
+        System.out.println(x + " + " + y + " = " + result);
+
+        result = calc.Sub();
+
+        System.out.println(x + " - " + y + " = " + result);
+
+
+        System.out.println("==================== After getter and setter ====================");
+
+        calc.setX(35);
+        calc.setY(15);
+
+        result = calc.Add();
+
+        System.out.println(calc.getX() + " + " + calc.getY() + " = " + result);
+
+        result = calc.Sub();
+
+        System.out.println(calc.getX() + " - " + calc.getY() + " = " + result);
+
+    }
+}
+```
+
+> Class A
+
+```java
+package calc;
+
+public class SimpleCalc {
+    private int x;
+    private int y;
+
+    public SimpleCalc(){
+        this.x = 0;
+        this.y = 0;
+    }
+
+    public SimpleCalc(int x, int y){
+        this.x = x;
+        this.y = y;
+
+    }
+
+    public int Add(){
+        return this.x + this.y;
+    }
+
+    public int Sub(){
+        return this.x - this.y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+    public int getX() {
+        return x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+    public int getY() {
+        return y;
+    }
+}
+```
