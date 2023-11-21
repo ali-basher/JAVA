@@ -551,3 +551,159 @@ public class AnotherCalc extends SimpleCalc{
     }
 }
 ```
+
+----
+
+## Static variables
+
+> Class Main
+
+```java
+package calc;
+
+public class Main {
+    public static void main(String[] args) {
+
+        A.y = 9;
+
+        System.out.println(A.y);
+
+        A z = new A();
+        A r = new A();
+
+        z.x = 10;
+        r.x = 11;
+
+        System.out.println(z.x);
+        System.out.println(r.x);
+
+        A.y = 99;
+
+        System.out.println(A.y);
+    }
+}
+```
+
+> Class A
+
+```java
+package calc;
+
+public class A {
+
+    public int x;
+    public static int y;
+}
+```
+
+----
+
+## Static Methods
+
+> Class Main
+
+```java
+package calc;
+
+public class Main {
+    public static void main(String[] args) {
+
+        A z = new A();
+
+        z.PrintNotStatic();
+
+        A.PrintStatic();
+
+        int result = A.Add(15, 45);
+
+        System.out.println(result);
+    }
+}
+```
+
+> Class A
+
+```java
+package calc;
+
+public class A {
+
+    public int x;
+    public static int y;
+
+    public static void PrintStatic(){
+        System.out.println("This Method using Static");
+    }
+
+    public void PrintNotStatic(){
+        System.out.println("This Method not using Static");
+    }
+
+    public static int Add(int a, int b){
+        return a+b;
+    }
+}
+```
+
+----
+
+## Static Calculater
+
+> Class Main
+
+```java
+package calc;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int a = 12;
+        int b = 4;
+
+        int result = A.Add(a, b);
+
+        System.out.println(a + " + " + b + " = " + result);
+
+        result = A.Sub(a, b);
+
+        System.out.println(a + " - " + b + " = " + result);
+
+        result = A.Mul(a, b);
+
+        System.out.println(a + " * " + b + " = " + result);
+
+        result = A.Div(a, b);
+
+        System.out.println(a + " / " + b + " = " + result);
+    }
+}
+```
+
+> Class A
+
+```java
+package calc;
+
+public class A {
+
+    public static int Add(int a, int b){
+        return a + b;
+    }
+
+    public static int Sub(int a, int b){
+        return a - b;
+    }
+
+    public static int Mul(int a, int b){
+        return a * b;
+    }
+
+    public static int Div(int a, int b){
+
+        if(b == 0){
+            return -1;
+        }
+        return a / b;
+    }
+}
+```
