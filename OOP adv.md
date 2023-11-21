@@ -707,3 +707,207 @@ public class A {
     }
 }
 ```
+
+----
+
+## The objects count with static
+
+> Class Main
+
+```java
+package calc;
+
+public class Main {
+    public static void main(String[] args) {
+
+        TheCount a = new TheCount();
+        TheCount b = new TheCount();
+        TheCount c = new TheCount();
+
+        System.out.println("The objects count: " + TheCount.getCount());
+    }
+}
+```
+
+> Class TheCount
+
+```java
+package calc;
+
+public class TheCount {
+
+    private static int count = 0;
+
+    public TheCount(){
+        count++;
+    }
+
+    public static int getCount(){
+        return count;
+    }
+}
+```
+
+----
+
+## Method overloading
+
+> Class Main
+
+```java
+package calc;
+
+public class Main {
+    public static void main(String[] args) {
+
+        A a = new A();
+
+        int r1 = a.Add(12, 4);
+        int r2 = a.Add(45);
+
+        System.out.println(r1);
+        System.out.println(r2);
+
+    }
+}
+```
+
+> Class A
+
+```java
+package calc;
+
+public class A {
+
+    private int x,y;
+
+    public int Add(int a, int b){
+        this.x = a;
+        this.y = b;
+
+        return this.x + this.y;
+    }
+    public int Add(int a){
+        this.x = a;
+
+        return this.x + this.x;
+    }
+}
+```
+
+----
+
+## @Override
+
+> Class Main
+
+```java
+package calc;
+
+public class Main {
+    public static void main(String[] args) {
+
+        A a = new A();
+
+        a.PrintA();
+
+        B b = new B();
+
+        b.PrintA();
+
+    }
+}
+```
+
+> Class A
+
+```java
+package calc;
+
+public class A {
+
+   public void PrintA(){
+       System.out.println("Class A.");
+   }
+}
+```
+
+> Class B
+
+```java
+package calc;
+
+public class B extends A{
+
+    @Override
+    public void PrintA() {
+        System.out.println("Class B");
+    }
+}
+```
+
+----
+
+## method overload vs method override
+
+> Class Main
+
+```java
+package calc;
+
+public class Main {
+    public static void main(String[] args) {
+
+        A a = new A();
+
+        a.PrintA();
+        a.Demo();
+        a.Demo(12);
+
+        B b = new B();
+
+        b.PrintA();
+        b.Demo(2.4F);
+
+    }
+}
+```
+
+> Class A
+
+```java
+package calc;
+
+public class A {
+
+   public void PrintA(){
+       System.out.println("Class A.");
+   }
+
+   public void Demo(){
+       System.out.println("Demo1 from A");
+   }
+
+    public void Demo(int a){
+        System.out.println("Demo2 from A");
+    }
+}
+```
+
+> Class B
+
+```java
+package calc;
+
+public class B extends A{
+
+    @Override
+    public void PrintA() {
+        System.out.println("Class B");
+    }
+
+    public void Demo(float a){
+        System.out.println("Demo3 from B");
+    }
+}
+```
