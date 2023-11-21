@@ -397,7 +397,7 @@ public class Main {
 }
 ```
 
-> Class A
+> Class SimpleCalc
 
 ```java
 package calc;
@@ -437,6 +437,117 @@ public class SimpleCalc {
     }
     public int getY() {
         return y;
+    }
+}
+```
+
+----
+
+## Anthor Calculater
+
+> Class Main
+
+```java
+package calc;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int x= 4;
+        int y= 2;
+
+       AnotherCalc calc = new AnotherCalc(x, y);
+
+       float result = calc.Add();
+
+        System.out.println(x + " + " + y + " = " + result);
+
+        result = calc.Sub();
+
+        System.out.println(x + " - " + y + " = " + result);
+
+        result = calc.Mul();
+
+        System.out.println(x + " * " + y + " = " + result);
+
+        result = calc.Div();
+
+        System.out.println(x + " / " + y + " = " + result);
+    }
+}
+```
+
+> Class SimpleCalc
+
+```java
+package calc;
+
+public class SimpleCalc {
+    private int x;
+    private int y;
+
+    public SimpleCalc(){
+        this.x = 0;
+        this.y = 0;
+    }
+
+    public SimpleCalc(int x, int y){
+        this.x = x;
+        this.y = y;
+
+    }
+
+    public int Add(){
+        return this.x + this.y;
+    }
+
+    public int Sub(){
+        return this.x - this.y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+    public int getX() {
+        return x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+    public int getY() {
+        return y;
+    }
+}
+```
+
+> Class AnotherCalc
+
+```java
+package calc;
+
+public class AnotherCalc extends SimpleCalc{
+
+ /*   public AnotherCalc(){
+        super();
+    }*/
+
+    public AnotherCalc(int x, int y){
+        super(x, y);
+    }
+
+    public int Mul(){
+        return this.getX() * this.getY();
+    }
+
+    public int Div(){
+        int y = this.getY();
+
+        if(y == 0){
+            return -1;
+        }else {
+            return this.getX() / y;
+        }
     }
 }
 ```
